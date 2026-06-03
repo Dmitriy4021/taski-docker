@@ -1,11 +1,15 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'SECRET')
 
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['localhost', 'mytaski.serveirc.com', '81.26.191.33']
 
@@ -78,6 +82,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = 'en-us'
+
 
 TIME_ZONE = 'UTC'
 
